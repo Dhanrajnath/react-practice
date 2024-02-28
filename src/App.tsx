@@ -1,7 +1,7 @@
 import './App.css';
-import Button from './components/muiComponents/Button';
+import Button from './components/examples/muiComponents/Button';
 import SendIcon from '@mui/icons-material/Send';
-import TextField from './components/muiComponents/TextField';
+import TextField from './components/examples/muiComponents/TextField';
 
 const App = () => {
   // const personName = {
