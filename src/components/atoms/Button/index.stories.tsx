@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IButtonProps, MUIButton } from '.';
-import React from 'react';
+import { MUIButton } from '.';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import { ButtonProps } from '@mui/material';
 
 export default {
     title: 'Atoms/MUIButton',
@@ -12,7 +11,7 @@ export default {
     },
 } as Meta;
 
-type MUIButtonType = StoryObj<IButtonProps>;
+type MUIButtonType = StoryObj<ButtonProps>;
 
 
 export const Primary: MUIButtonType = {

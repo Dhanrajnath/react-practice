@@ -10,7 +10,11 @@ export interface IMUITextFieldProps extends BaseTextFieldProps {
     label?: string;
     placeholder?: string;
     onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
+    handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     validate?: (value: string) => boolean;
+    error?: boolean;
+    showPassword?: boolean;
+    togglePasswordVisibility?: () => void;
 }
 
 const MUITextField = ({
@@ -20,30 +24,13 @@ const MUITextField = ({
     label,
     placeholder,
     onChange,
+    handleChange,
     validate,
+    error,
+    showPassword = false,
+    togglePasswordVisibility,
     ...rest
 }: IMUITextFieldProps) => {
-    const [value, setValue] = useState('');
-    const [error, setError] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = event.target.value;
-        setValue(newValue);
-        if (validate && !validate(newValue)) {
-            setError(true);
-        } else {
-            setError(false);
-        }
-        if (onChange) {
-            onChange(event);
-        }
-    };
-
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
     return (
         <TextField
             required={required}

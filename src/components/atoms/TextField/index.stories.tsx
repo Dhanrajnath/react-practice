@@ -32,3 +32,17 @@ export const PasswordTextField: MUITextFieldStory = {
     sx: { borderColor: "blue" }
   }
 }
+
+export const PasswordTextFieldError: MUITextFieldStory = {
+  args: {
+    type: 'password',
+    variant: 'outlined',
+    label: 'Password',
+    required: true,
+    placeholder: 'enter your password',
+    onChange: (event: any) => console.log(event.target.value),
+    sx: { borderColor: "blue" },
+    error: true,
+    showPassword: true,
+  }
+}

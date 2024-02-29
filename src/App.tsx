@@ -3,6 +3,9 @@ import Button from './components/examples/muiComponents/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from './components/examples/muiComponents/TextField';
 import MUITextField from './components/atoms/TextField';
+import { Box, ThemeProvider } from '@mui/material';
+import theme from './utils/theme';
+import { MUIButton } from './components/atoms/Button';
 
 const App = () => {
   // const personName = {
@@ -92,14 +95,35 @@ const App = () => {
   //     {/* <CustomizedButton variant='primary' onClick={() => console.log('Clicked!')}>CBtn</CustomizedButton> */}
   //     <ParentComponent />
   //     {/* <Button variant="outlined" onClick={() => console.log('clicked')} endIcon={<SendIcon />} >submit</Button> */}
+  // <Button variant="contained" endIcon={<SendIcon />}>send</Button>
+  // <div style={{ paddingTop: 50, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
+  //   <TextField variant="outlined" onChange={(e) => console.log(e.target.value)} required={true} error={true} />
+  // </div>
   //   </div>
   // );
 
   return (
-    // <Button variant="contained" endIcon={<SendIcon />}>send</Button>
-    <div style={{ paddingTop: 50, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
-      <TextField variant="outlined" onChange={(e) => console.log(e.target.value)} required={true} error={true} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box
+        height={200}
+        width={200}
+        display="flex"
+        alignItems="center"
+        p={2}
+        m={2}
+        sx={{ border: '2px solid grey' }}
+      >
+        <MUIButton
+          size={'large'}
+          variant='contained'
+          color='primary'
+          onClick={() => { console.log('Clicked!') }}
+        >
+          Primary Button
+        </MUIButton>
+      </Box>
+
+    </ThemeProvider>
   )
 }
 
